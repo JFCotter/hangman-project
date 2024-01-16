@@ -1,5 +1,11 @@
+import React from "react"
+
 const HMHeader = () => {
-    return <h1>The Hangman Reacts</h1>
+	return (
+		<header>
+			<h1>The Hangman Reacts</h1>
+		</header>
+	)
 }
 
 export default HMHeader
