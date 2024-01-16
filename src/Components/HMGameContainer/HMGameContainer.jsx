@@ -3,7 +3,8 @@ import HMLetterOutput	from "./components/HMLetterOutput/HMLetterOutput.jsx"
 
 const HMGameContainer = () => {
 
-	const [guessedLetters, setGuessedLetters] = React.useState([]);
+	// Using a Set, so that by-design, the same letter cannot be added twice.
+	const [guessedLetters, setGuessedLetters] = React.useState(new Set([]));
 
 	return (
 		<div>
@@ -12,7 +13,7 @@ const HMGameContainer = () => {
 			<br/>
 
 			{
-				[...word].map(
+				[..."Test"].map(
 					(letter, index) => <HMLetterOutput key={index} />
 				)
 			}
