@@ -1,5 +1,7 @@
 import React		from "react"
-import LetterOutput	from "./Components/LetterOutput/LetterOutput.jsx"
+import HMHeader		from "./components/HMHeader/HMHeader.jsx"
+import HMFooter 	from "./components/HMFooter/HMFooter.jsx"
+import LetterOutput	from "./components/LetterOutput/LetterOutput.jsx"
 
 const App = () => {
 
@@ -7,16 +9,17 @@ const App = () => {
 
 	return (
 		<main style={{ textAlign : "center" }}>
-			
+			<HMHeader/>
 			<b>Hangman</b>
 			<br/>
 
 			{
 				[...word].map(
 					(letter, index) => <LetterOutput key={index} />
-				)
-			}
+					)
+				}
 
+			<HMFooter/>
 		</main>
 	)
 
