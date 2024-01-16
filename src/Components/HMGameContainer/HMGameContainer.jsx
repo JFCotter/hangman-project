@@ -1,5 +1,6 @@
 import React			from "react"
-import HMLetterOutput	from "./components/HMLetterOutput/HMLetterOutput.jsx"
+import HMLetterOutput	from "../../components/HMLetterOutput/HMLetterOutput.jsx"
+import HMLetterButton	from "../../components/HMLetterButton/HMLetterButton.jsx"
 
 const HMGameContainer = () => {
 

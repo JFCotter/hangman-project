@@ -8,7 +8,7 @@ const App = () => {
 	return (
 		<>
 			<HMHeader/>
-			<main style={{ textAlign : "center" }}>
+			<main>
 				<HMGameContainer/>
 				<HMGameContainer/>
 			</main>

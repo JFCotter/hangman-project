@@ -3,7 +3,11 @@ import React from "react"
 const HMFooter = () => {
 	return (
 		<footer>
-			<i>Hangman Industries (c) 2024&nbsp;<a href="#">Upgrade to Hangman Pro</a></i>
+			<p>
+				Hangman Industries (c) 2024
+				<br/>
+				<a href="#">Upgrade to Hangman Pro</a>
+			</p>
 		</footer>
 	)
 }
