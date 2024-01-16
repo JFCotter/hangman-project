@@ -1,5 +1,5 @@
 import React		from "react"
-import LetterOutput	from "./Components/LetterOutput/LetterOutput.jsx"
+import LetterOutput	from "./components/LetterOutput/LetterOutput.jsx"
 
 const App = () => {
 
