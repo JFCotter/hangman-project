@@ -1,27 +1,21 @@
-import React			from "react"
-import HMLetterOutput	from "../../components/HMLetterOutput/HMLetterOutput.jsx"
-import HMLetterButton	from "../../components/HMLetterButton/HMLetterButton.jsx"
+import React from "react";
+import LetterOutput from "../../components/LetterOutput/LetterOutput.jsx";
+import LetterButton from "../../components/LetterButton/LetterButton.jsx";
 
-const HMGameContainer = () => {
+const GameContainer = () => {
+  // Using a Set, so that by-design, the same letter cannot be added twice.
+  const [guessedLetters, setGuessedLetters] = React.useState(new Set([]));
 
-	// Using a Set, so that by-design, the same letter cannot be added twice.
-	const [guessedLetters, setGuessedLetters] = React.useState(new Set([]));
+  return (
+    <div>
+      <b>Hangman</b>
+      <br />
 
-	return (
-		<div>
+      {[..."Test"].map((letter, index) => (
+        <LetterOutput key={index} />
+      ))}
+    </div>
+  );
+};
 
-			<b>Hangman</b>
-			<br/>
-
-			{
-				[..."Test"].map(
-					(letter, index) => <HMLetterOutput key={index} />
-				)
-			}
-
-		</div>
-	)
-
-}
-
-export default HMGameContainer
+export default GameContainer;

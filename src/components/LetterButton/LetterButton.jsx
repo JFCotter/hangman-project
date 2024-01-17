@@ -1,12 +1,8 @@
-import React	from "react"
-import styles	from "./HMLetterButton.module.css"
+import React from "react";
+import styles from "./LetterButton.module.css";
 
-const HMLetterButton = () => {
-	return (
-		<span className={styles.HMLetterButton}>
-			_
-		</span>
-	)
-}
+const LetterButton = () => {
+  return <span className={styles.LetterButton}>_</span>;
+};
 
-export default HMLetterButton
+export default LetterButton;

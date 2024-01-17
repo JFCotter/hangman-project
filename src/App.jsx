@@ -9,7 +9,6 @@ const App = () => {
       <Header />
       <main>
         <GameContainer />
-        <GameContainer />
       </main>
       <Footer />
     </>
