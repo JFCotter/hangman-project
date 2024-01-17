@@ -1,21 +1,19 @@
-import React			from "react"
-import HMHeader			from "./components/HMHeader/HMHeader.jsx"
-import HMFooter 		from "./components/HMFooter/HMFooter.jsx"
-import HMGameContainer	from "./components/HMGameContainer/HMGameContainer.jsx"
+import React from "react";
+import Header from "./components/Header/Header.jsx";
+import Footer from "./components/Footer/Footer.jsx";
+import GameContainer from "./components/GameContainer/GameContainer.jsx";
 
 const App = () => {
+  return (
+    <>
+      <Header />
+      <main>
+        <GameContainer />
+        <GameContainer />
+      </main>
+      <Footer />
+    </>
+  );
+};
 
-	return (
-		<>
-			<HMHeader/>
-			<main>
-				<HMGameContainer/>
-				<HMGameContainer/>
-			</main>
-			<HMFooter/>
-		</>
-	)
-
-}
-
-export default App
+export default App;
