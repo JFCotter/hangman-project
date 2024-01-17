@@ -7,8 +7,14 @@ const GameContainer = () => {
   // Using a Set, so that by-design, the same letter cannot be added twice.
   const [guessedLetters, setGuessedLetters] = React.useState(new Set([]));
 
-  const randomIndex = Math.floor(Math.random()*WordsList.length);
-  const randomWord = WordsList[randomIndex];
+  const getRandomWord = () => {
+    const randomIndex = Math.floor(Math.random()*WordsList.length);
+    const randomWord = WordsList[randomIndex];
+    return randomWord;
+  }
+
+  const [gameWord, setGameWord] = React.useState( getRandomWord() );
+
   /*    
   [1,2,5,2,7][ Math.floor(Math.random()*[1,2,5,2,7].length) ]
     1 read file into string
@@ -16,6 +22,8 @@ const GameContainer = () => {
     3 regard the Words member of this JSON
     4 math.random() 
   
+    setGuessedLetters(new Set([...guessedLetters, targetLetter]))
+
   */
 
 
@@ -33,7 +41,7 @@ const GameContainer = () => {
       <br />
 
       {
-        [...randomWord].map(
+        [...gameWord].map(
           (letter,index) => <LetterOutput key={index} targetLetter={letter} />
         )
       }
