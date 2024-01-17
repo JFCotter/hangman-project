@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./LetterOutput.module.css";
 
-const LetterOutput = () => {
-  return <span className={styles.LetterOutput}>_</span>;
+const LetterOutput = ({ targetLetter }) => {
+  return <span className={styles.LetterOutput}>{targetLetter}</span>;
 };
 
 export default LetterOutput;
