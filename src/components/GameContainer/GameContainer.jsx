@@ -1,4 +1,5 @@
 import React from "react";
+import WordsList from "../../words.js";
 import LetterOutput from "../../components/LetterOutput/LetterOutput.jsx";
 import LetterButton from "../../components/LetterButton/LetterButton.jsx";
 
@@ -7,6 +8,16 @@ const GameContainer = () => {
   const [guessedLetters, setGuessedLetters] = React.useState(new Set([]));
 
   const word = "randomword";
+
+  [1,2,5,2,7][ Math.floor(Math.random()*[1,2,5,2,7].length) ]
+
+  /*    
+    1 read file into string
+    2 parse string into JSON
+    3 regard the Words member of this JSON
+    4 math.random() 
+  
+  */
 
 
 
