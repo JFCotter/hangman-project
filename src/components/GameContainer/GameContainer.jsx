@@ -2,6 +2,7 @@ import React from "react";
 import WordsList from "../../words.js";
 import LetterOutput from "../../components/LetterOutput/LetterOutput.jsx";
 import LetterButton from "../../components/LetterButton/LetterButton.jsx";
+import ProgressIndicator from "../ProgressIndicator/ProgressIndicator.jsx";
 
 const GameContainer = () => {
   // Using a Set, so that by-design, the same letter cannot be added twice.
@@ -37,21 +38,24 @@ const GameContainer = () => {
 
   return (
     <div>
-      <b>Hangman</b>
-      <br />
+      
+		<ProgressIndicator/>
 
-      {
-        [...gameWord].map(
-          (letter,index) => <LetterOutput key={index} targetLetter={letter} />
-        )
-      }
+		<br />
 
-      <br />
-      <br />
+		{
+			[...gameWord].map(
+				(letter,index) => <LetterOutput key={index} targetLetter={letter} />
+			)
+		}
 
-      {[...alphabet].map((letter) => (
-        <LetterButton key={letter} letterOfAlphabet={letter} />
-      ))}
+		<br />
+		<br />
+
+		{[...alphabet].map((letter) => (
+			<LetterButton key={letter} letterOfAlphabet={letter} />
+		))}
+
     </div>
   );
 };

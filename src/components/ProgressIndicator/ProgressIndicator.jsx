@@ -1,6 +1,6 @@
 import React from "react";
 
-const Status = () => {
+const ProgressIndicator = () => {
   return (
     <figure>
       <img src="/HM_Stage_11.PNG" alt="Hangman Graphic" />
@@ -9,4 +9,4 @@ const Status = () => {
   );
 };
 
-export default Status;
+export default ProgressIndicator;
