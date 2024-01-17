@@ -6,6 +6,10 @@ const GameContainer = () => {
   // Using a Set, so that by-design, the same letter cannot be added twice.
   const [guessedLetters, setGuessedLetters] = React.useState(new Set([]));
 
+  const word = "randomword";
+
+
+
   // ["A", "B", "C", ...]
   const alphabet = new Set(
     Array.from({ length: 26 }, (e, i) => i + 65).map((e) =>
@@ -18,7 +22,7 @@ const GameContainer = () => {
       <b>Hangman</b>
       <br />
 
-      {[...alphabet].map((letter) => (
+      {[...word].map((letter) => (
         <LetterOutput key={letter} targetLetter={letter} />
       ))}
 
