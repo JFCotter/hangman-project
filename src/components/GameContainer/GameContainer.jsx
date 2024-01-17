@@ -7,11 +7,10 @@ const GameContainer = () => {
   // Using a Set, so that by-design, the same letter cannot be added twice.
   const [guessedLetters, setGuessedLetters] = React.useState(new Set([]));
 
-  const word = "randomword";
-
-  [1,2,5,2,7][ Math.floor(Math.random()*[1,2,5,2,7].length) ]
-
+  const randomIndex = Math.floor(Math.random()*WordsList.length);
+  const randomWord = WordsList[randomIndex];
   /*    
+  [1,2,5,2,7][ Math.floor(Math.random()*[1,2,5,2,7].length) ]
     1 read file into string
     2 parse string into JSON
     3 regard the Words member of this JSON
@@ -33,9 +32,11 @@ const GameContainer = () => {
       <b>Hangman</b>
       <br />
 
-      {[...word].map((letter) => (
-        <LetterOutput key={letter} targetLetter={letter} />
-      ))}
+      {
+        [...randomWord].map(
+          (letter,index) => <LetterOutput key={index} targetLetter={letter} />
+        )
+      }
 
       <br />
       <br />
