@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./LetterOutput.module.css";
 
-const LetterOutput = ({ targetLetter }) => {
-  return <span className={styles.LetterOutput}>{targetLetter}</span>;
+const LetterOutput = ({ targetLetter, guessedLettersP }) => {
+  return <span className={styles.LetterOutput}>{
+   [...guessedLettersP].includes(targetLetter) ? targetLetter : "_"
+  }</span>;
 };
 
 export default LetterOutput;
