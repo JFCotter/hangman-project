@@ -5,6 +5,7 @@ import LetterButton from "../../components/LetterButton/LetterButton.jsx";
 import ProgressIndicator from "../ProgressIndicator/ProgressIndicator.jsx";
 
 const GameContainer = () => {
+	
   const getRandomWord = () => {
     const randomIndex = Math.floor(Math.random()*WordsList.length);
     const randomWord = WordsList[randomIndex];
@@ -24,26 +25,28 @@ const GameContainer = () => {
   );
 
   return (
-    <div>
-      
+	<div>
+		
 		<ProgressIndicator/>
 
 		<br />
 
 		{
 			[...gameWord].map(
-				(letter,index) => <LetterOutput key={index} targetLetter={letter} guessedLettersP={guessedLetters} />
+				(letter, index) => <LetterOutput key={index} targetLetter={letter.toUpperCase()} guessedLettersP={guessedLetters} />
 			)
 		}
 
 		<br />
 		<br />
 
-		{[...alphabet].map((letter) => (
-			<LetterButton key={letter} letterOfAlphabet={letter} guessedLettersP={guessedLetters} setGuessedLettersP={setGuessedLetters} />
-		))}
+		{
+			[...alphabet].map(
+				(letter, index) => <LetterButton key={index} letterOfAlphabet={letter.toUpperCase()} guessedLettersP={guessedLetters} setGuessedLettersP={setGuessedLetters} />
+			)
+		}
 
-    </div>
+	</div>
   );
 };
 

@@ -1,17 +1,20 @@
-import React from "react";
-import styles from "./LetterButton.module.css";
+import React	from "react";
+import styles	from "./LetterButton.module.css";
 
 const LetterButton = ({ letterOfAlphabet, guessedLettersP, setGuessedLettersP }) => {
-  return (
-	<button onClick = {
-    () => {
-        setGuessedLettersP(new Set([...guessedLettersP, letterOfAlphabet]));
-    }
-  }
-  >{
-    letterOfAlphabet
-  }</button>
-  );
+	return (
+		<button
+			className={styles.LetterButton}
+			onClick = {
+				() => {
+					setGuessedLettersP(new Set([...guessedLettersP, letterOfAlphabet.toUpperCase()]));
+					console.warn("LetterButton set guessedLetters to: " + [...(new Set([...guessedLettersP, letterOfAlphabet.toUpperCase()]))]);
+				}
+			}
+		>
+			{letterOfAlphabet.toUpperCase()}
+		</button>
+	);
 };
 
 export default LetterButton;
