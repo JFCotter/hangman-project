@@ -5,9 +5,7 @@ import LetterButton from "../../components/LetterButton/LetterButton.jsx";
 import ProgressIndicator from "../ProgressIndicator/ProgressIndicator.jsx";
 
 const GameContainer = () => {
-  // Using a Set, so that by-design, the same letter cannot be added twice.
-  const [guessedLetters, setGuessedLetters] = React.useState(new Set([]));
-
+	
   const getRandomWord = () => {
     const randomIndex = Math.floor(Math.random()*WordsList.length);
     const randomWord = WordsList[randomIndex];
@@ -15,19 +13,9 @@ const GameContainer = () => {
   }
 
   const [gameWord, setGameWord] = React.useState( getRandomWord() );
-
-  /*    
-  [1,2,5,2,7][ Math.floor(Math.random()*[1,2,5,2,7].length) ]
-    1 read file into string
-    2 parse string into JSON
-    3 regard the Words member of this JSON
-    4 math.random() 
   
-    setGuessedLetters(new Set([...guessedLetters, targetLetter]))
-
-  */
-
-
+  // Using a Set, so that by-design, the same letter cannot be added twice.
+  const [guessedLetters, setGuessedLetters] = React.useState(new Set([]));
 
   // ["A", "B", "C", ...]
   const alphabet = new Set(
@@ -37,26 +25,28 @@ const GameContainer = () => {
   );
 
   return (
-    <div>
-      
+	<div>
+		
 		<ProgressIndicator/>
 
 		<br />
 
 		{
 			[...gameWord].map(
-				(letter,index) => <LetterOutput key={index} targetLetter={letter} />
+				(letter, index) => <LetterOutput key={index} targetLetter={letter.toUpperCase()} guessedLettersP={guessedLetters} />
 			)
 		}
 
 		<br />
 		<br />
 
-		{[...alphabet].map((letter) => (
-			<LetterButton key={letter} letterOfAlphabet={letter} />
-		))}
+		{
+			[...alphabet].map(
+				(letter, index) => <LetterButton key={index} letterOfAlphabet={letter.toUpperCase()} guessedLettersP={guessedLetters} setGuessedLettersP={setGuessedLetters} />
+			)
+		}
 
-    </div>
+	</div>
   );
 };
 
