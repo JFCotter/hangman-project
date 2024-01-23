@@ -1,5 +1,17 @@
-.LetterOutput {
-  font-size: 4rem;
-  width: 4rem;
-  display: inline-block;
+.letterOutput {
+	
+	/* Misc. */
+	font-size:					4rem;
+	width:						4rem;
+	display:					inline-block;
+	
+	/* Roll-over */
+	transition:					rotate 0.5s;
+	transition-timing-function:	ease;
+	rotate:						180deg;
+
+}
+
+.hasBeenGuessed {
+	rotate:						0deg;
 }
