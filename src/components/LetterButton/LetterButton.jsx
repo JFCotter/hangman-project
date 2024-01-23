@@ -6,10 +6,7 @@ const LetterButton = ({ letterOfAlphabet, guessedLettersP, setGuessedLettersP })
 		<button
 			className={styles.LetterButton}
 			onClick = {
-				() => {
-					setGuessedLettersP(new Set([...guessedLettersP, letterOfAlphabet.toUpperCase()]));
-					console.warn("LetterButton set guessedLetters to: " + [...(new Set([...guessedLettersP, letterOfAlphabet.toUpperCase()]))]);
-				}
+				() => setGuessedLettersP(new Set([...guessedLettersP, letterOfAlphabet.toUpperCase()]))
 			}
 		>
 			{letterOfAlphabet.toUpperCase()}
