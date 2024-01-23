@@ -6,22 +6,23 @@ import ProgressIndicator from "../ProgressIndicator/ProgressIndicator.jsx";
 
 const GameContainer = () => {
 	
-  const [gameWord, setGameWord] = React.useState( getRandomWord() );
-  
-  // Using a Set, so that by-design, the same letter cannot be added twice.
-  const [guessedLetters, setGuessedLetters] = React.useState(new Set([]));
+	// setGameWord not needed because the gameWord should only be set on page load
+	const [gameWord] = React.useState( getRandomWord().toUpperCase() );
 
-  // ["A", "B", "C", ...]
-  const alphabet = new Set(
-    Array.from({ length: 26 }, (e, i) => i + 65).map((e) =>
-      String.fromCharCode(e)
-    )
-  );
+	// Using a Set, so that by-design, the same letter cannot be added twice.
+	const [guessedLetters, setGuessedLetters] = React.useState(new Set([]));
+
+	// ["A", "B", "C", ...]
+	const alphabet = new Set(
+		Array.from({ length : 26 }, (e, i) => i + 65).map((e) =>
+			String.fromCharCode(e)
+		)
+	);
 
   return (
 	<div>
 		
-		<ProgressIndicator/>
+		<ProgressIndicator guessedLettersP={guessedLetters} gameWordP={gameWord} />
 
 		<br />
 
