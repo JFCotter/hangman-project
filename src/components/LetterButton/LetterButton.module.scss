@@ -1,0 +1,19 @@
+$myColorB:  rgb(23,23,20);
+$myColorBl:  rgb(125, 175, 219) ;
+$myColorW: rgb(255,255,255);
+
+.LetterButton {
+  padding: 10px;
+  width: 40px;
+  height: 50px;
+  border-radius: 5%;
+  background-color:$myColorW;
+  color: $myColorBl;
+  border: 2px solid $myColorBl;
+}
+
+.LetterButton:hover{
+  background-color:$myColorBl;
+  color: $myColorW;
+  border: 2px solid $myColorBl;
+}
