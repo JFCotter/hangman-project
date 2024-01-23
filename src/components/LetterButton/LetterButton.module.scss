@@ -3,17 +3,21 @@ $myColorBl:  rgb(125, 175, 219) ;
 $myColorW: rgb(255,255,255);
 
 .LetterButton {
-  padding: 1rem;
-  width: 3rem;
-  height: 4rem;
-  border-radius: 5%;
-  background-color:$myColorW;
-  color: $myColorBl;
-  border: 2px solid $myColorBl;
+  // padding: 1rem;
+  // width: 3rem;
+  // height: 4rem;
+  // border-radius: 5%;
+  // background-color:$myColorW;
+  // color: $myColorBl;
+  // border: 2px solid $myColorBl;
 }
 
 .LetterButton:hover{
-  background-color:$myColorBl;
-  color: $myColorW;
-  border: 2px solid $myColorBl;
+  // background-color:$myColorBl;
+  // color: $myColorW;
+  // border: 2px solid $myColorBl;
+}
+
+.hasBeenGuessed{
+  text-decoration: line-through;
 }
