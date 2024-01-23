@@ -1,5 +1,5 @@
 import React	from "react";
-import styles	from "./LetterButton.module.css";
+import styles	from "./LetterButton.module.scss"
 
 const LetterButton = ({ letterOfAlphabet, guessedLettersP, setGuessedLettersP }) => {
 	return (
