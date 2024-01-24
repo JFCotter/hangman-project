@@ -2,10 +2,10 @@ import React from "react";
 import getRandomWord from "../../utilities/dataRetrieval.js"
 import LetterOutput from "../../components/LetterOutput/LetterOutput.jsx";
 import LetterButton from "../../components/LetterButton/LetterButton.jsx";
-import ProgressIndicator from "../ProgressIndicator/ProgressIndicator.jsx";
+import {ProgressIndicator} from "../ProgressIndicator/ProgressIndicator.jsx";
 
 const GameContainer = () => {
-	
+
 	// setGameWord not needed because the gameWord should only be set on page load.
 	const [gameWord] = React.useState( getRandomWord().toUpperCase() );
 	console.debug(`gameWord: ${gameWord}`);
