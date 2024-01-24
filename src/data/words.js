@@ -1,4 +1,4 @@
-export default [
+const wordsArray = [
   "a",
   "able",
   "about",
@@ -849,3 +849,5 @@ export default [
   "you",
   "young",
 ];
+
+export default wordsArray;
