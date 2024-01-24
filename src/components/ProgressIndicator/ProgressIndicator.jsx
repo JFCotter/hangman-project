@@ -9,6 +9,16 @@ const ProgressIndicator = ({ guessedLettersP, gameWordP }) => {
 
 	(numIncorrectGuessesRemaining < 1) && window.alert("Game Over!");
 
+  console.debug(`
+	guessedLettersP = ${[...guessedLettersP]}
+	gameWordP = ${gameWordP}
+	${[...guessedLettersP]} includes ${[...gameWordP]} Result: ${[...guessedLettersP].includes(...[...gameWordP])}
+  `);
+
+  	//[...guessedLettersP].includes(...gameWordP) && window.alert("You Win!!");
+	  [...gameWordP].every(letter => [...guessedLettersP].includes(letter.toUpperCase())) && window.alert("You Win!!");
+
+
 	return (
 		<figure>
 			<img
