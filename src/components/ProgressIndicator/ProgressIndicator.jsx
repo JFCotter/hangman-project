@@ -3,9 +3,11 @@ import styles from "./ProgressIndicator.module.scss";
 
 const ProgressIndicator = ({ guessedLettersP, gameWordP }) => {
 
-  const numIncorrectGuessesAllowed		= 11;
-  const numIncorrectGuessesMade			= guessedLettersP.size - (new Set([...gameWordP].filter(letter => [...guessedLettersP].includes(letter.toUpperCase())))).size;
-  const numIncorrectGuessesRemaining	= numIncorrectGuessesAllowed - numIncorrectGuessesMade;
+	const numIncorrectGuessesAllowed		= 11;
+	const numIncorrectGuessesMade			= guessedLettersP.size - (new Set([...gameWordP].filter(letter => [...guessedLettersP].includes(letter.toUpperCase())))).size;
+	const numIncorrectGuessesRemaining	= numIncorrectGuessesAllowed - numIncorrectGuessesMade;
+
+	(numIncorrectGuessesRemaining < 1) && window.alert("Game Over!");
 
 	return (
 		<figure>
@@ -20,4 +22,4 @@ const ProgressIndicator = ({ guessedLettersP, gameWordP }) => {
 
 };
 
-export default ProgressIndicator;
+export {ProgressIndicator};
