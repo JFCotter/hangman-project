@@ -7,6 +7,16 @@ const ProgressIndicator = ({ guessedLettersP, gameWordP }) => {
   const numIncorrectGuessesMade			= guessedLettersP.size - (new Set([...gameWordP].filter(letter => [...guessedLettersP].includes(letter.toUpperCase())))).size;
   const numIncorrectGuessesRemaining	= numIncorrectGuessesAllowed - numIncorrectGuessesMade;
 
+  console.debug(`
+	guessedLettersP = ${[...guessedLettersP]}
+	gameWordP = ${gameWordP}
+	${[...guessedLettersP]} includes ${[...gameWordP]} Result: ${[...guessedLettersP].includes(...[...gameWordP])}
+  `);
+
+  	//[...guessedLettersP].includes(...gameWordP) && window.alert("You Win!!");
+	  [...gameWordP].every(letter => [...guessedLettersP].includes(letter.toUpperCase())) && window.alert("You Win!!");
+
+
 	return (
 		<figure>
 			<img
