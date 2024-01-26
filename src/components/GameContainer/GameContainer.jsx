@@ -1,8 +1,10 @@
-import React from "react";
-import getRandomWord from "../../utilities/dataRetrieval.js"
-import LetterOutput from "../../components/LetterOutput/LetterOutput.jsx";
-import LetterButton from "../../components/LetterButton/LetterButton.jsx";
-import {ProgressIndicator} from "../ProgressIndicator/ProgressIndicator.jsx";
+import React				from "react";
+import getRandomWord		from "../../utilities/dataRetrieval.js"
+import LetterOutput			from "../../components/LetterOutput/LetterOutput.jsx";
+import LetterButton			from "../../components/LetterButton/LetterButton.jsx";
+import {ProgressIndicator}	from "../../components/ProgressIndicator/ProgressIndicator.jsx";
+
+const alphabet = new Set(Array.from({ length : 26 }, (e, i) => i + 65).map(e => String.fromCharCode(e)));
 
 const GameContainer = () => {
 
@@ -13,13 +15,22 @@ const GameContainer = () => {
 	// Using a Set, so that by-design, the same letter cannot be added twice.
 	const [guessedLetters, setGuessedLetters] = React.useState(new Set([]));
 
-	// ["A", "B", "C", ...]
-	const alphabet = new Set(Array.from({ length : 26 }, (e, i) => i + 65).map(e => String.fromCharCode(e)));
+	const numIncorrectGuessesAllowed	= 11;
+	const numIncorrectGuessesMade		= guessedLetters.size - (new Set([...gameWord].filter(letter => [...guessedLetters].includes(letter.toUpperCase())))).size;
+	const numIncorrectGuessesRemaining	= numIncorrectGuessesAllowed - numIncorrectGuessesMade;
+
+	const gameHasBeenLost	= (numIncorrectGuessesRemaining < 1);
+	const gameHasBeenWon	= ([...gameWord].every(ltr => [...guessedLetters].includes(ltr.toUpperCase())));
 
 	return (
 		<div>
 			
-			<ProgressIndicator guessedLettersP={guessedLetters} gameWordP={gameWord} />
+			<ProgressIndicator
+				numIncorrectGuessesMade={numIncorrectGuessesMade}
+				numIncorrectGuessesRemaining={numIncorrectGuessesRemaining}
+				gameHasBeenLost={gameHasBeenLost}
+				gameHasBeenWon={gameHasBeenWon}
+			/>
 
 			<br />
 
@@ -33,7 +44,13 @@ const GameContainer = () => {
 
 			{
 				[...alphabet].map(
-					(letter, index) => <LetterButton key={index} letterOfAlphabet={letter.toUpperCase()} guessedLettersP={guessedLetters} setGuessedLettersP={setGuessedLetters} />
+					(letter, index) => <LetterButton
+						key={index}
+						letterOfAlphabet={letter.toUpperCase()}
+						guessedLettersP={guessedLetters}
+						setGuessedLettersP={setGuessedLetters}
+						gameIsOver={gameHasBeenLost || gameHasBeenWon}
+					/>
 				)
 			}
 

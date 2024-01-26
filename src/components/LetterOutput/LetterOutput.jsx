@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./LetterOutput.module.scss";
+import React	from "react";
+import styles	from "./LetterOutput.module.scss";
 
 const LetterOutput = ({ targetLetter, guessedLettersP }) => {
 

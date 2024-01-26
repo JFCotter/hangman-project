@@ -1,3 +1,27 @@
 .hangmanGraphic {
-    width: 20rem;
+	width: 20rem;
+}
+
+.gameOverBlock {
+
+	$paddingWidth:			16px;
+
+	border-style:			dashed;
+	padding: {
+		left:				$paddingWidth;
+		right:				$paddingWidth;
+		top:				$paddingWidth;
+		bottom:				$paddingWidth;
+	};
+
+	&.gameLostColours {
+		background-color:	palevioletred;
+		border-color:		firebrick;
+	}
+	
+	&.gameWonColours {
+		background-color:	yellowgreen;
+		border-color:		darkolivegreen;
+	}
+
 }
