@@ -1,14 +1,22 @@
-import React from "react";
-import styles from "./ProgressIndicator.module.scss";
+import React	from "react";
+import styles	from "./ProgressIndicator.module.scss";
 
-const ProgressIndicator = ({ guessedLettersP, gameWordP }) => {
-
-	const numIncorrectGuessesAllowed	= 11;
-	const numIncorrectGuessesMade		= guessedLettersP.size - (new Set([...gameWordP].filter(letter => [...guessedLettersP].includes(letter.toUpperCase())))).size;
-	const numIncorrectGuessesRemaining	= numIncorrectGuessesAllowed - numIncorrectGuessesMade;
-
-	(numIncorrectGuessesRemaining < 1)													&& window.alert("Game Lost!");
-	([...gameWordP].every(ltr => [...guessedLettersP].includes(ltr.toUpperCase())))		&& window.alert("Game Won!!");
+const ProgressIndicator = (
+		{
+			numIncorrectGuessesMade,
+			numIncorrectGuessesRemaining,
+			gameHasBeenLost,
+			gameHasBeenWon
+		}
+	) => {
+	
+	const renderProgressCaption = () => {
+		switch (true) {
+			case gameHasBeenLost:	return <span className={`${styles.gameOverBlock} ${styles.gameLostColours}`}> Game Lost! <button onClick={() => window.location.reload()}>New Game</button> </span>;
+			case gameHasBeenWon:	return <span className={`${styles.gameOverBlock} ${styles.gameWonColours}`}> Game Won!! <button onClick={() => window.location.reload()}>New Game</button> </span>;
+			default:				return <span> { numIncorrectGuessesRemaining } guess{ (numIncorrectGuessesRemaining !== 1) && "es" } remaining </span>;
+		}
+	};
 
 	return (
 		<figure>
@@ -17,7 +25,9 @@ const ProgressIndicator = ({ guessedLettersP, gameWordP }) => {
 				src={`/stages/stage_${numIncorrectGuessesMade.toString().padStart(2, "0")}.PNG`}
 				alt="Hangman Graphic"
 			/>
-			<figcaption>{numIncorrectGuessesRemaining} guess{ (numIncorrectGuessesRemaining !== 1) && "es" } remaining</figcaption>
+			<figcaption>
+				{ renderProgressCaption() }
+			</figcaption>
 		</figure>
 	);
 
