@@ -1,8 +1,11 @@
-import React from "react";
-import getRandomWord from "../../utilities/dataRetrieval.js"
-import LetterOutput from "../../components/LetterOutput/LetterOutput.jsx";
-import LetterButton from "../../components/LetterButton/LetterButton.jsx";
-import {ProgressIndicator} from "../ProgressIndicator/ProgressIndicator.jsx";
+import React				from "react";
+import getRandomWord		from "../../utilities/dataRetrieval.js"
+import LetterOutput			from "../../components/LetterOutput/LetterOutput.jsx";
+import LetterButton			from "../../components/LetterButton/LetterButton.jsx";
+import {ProgressIndicator}	from "../ProgressIndicator/ProgressIndicator.jsx";
+import {gameState}			from "../../utilities/gameState.js";
+
+const alphabet = new Set(Array.from({ length : 26 }, (e, i) => i + 65).map(e => String.fromCharCode(e)));
 
 const GameContainer = () => {
 
@@ -12,9 +15,6 @@ const GameContainer = () => {
 
 	// Using a Set, so that by-design, the same letter cannot be added twice.
 	const [guessedLetters, setGuessedLetters] = React.useState(new Set([]));
-
-	// ["A", "B", "C", ...]
-	const alphabet = new Set(Array.from({ length : 26 }, (e, i) => i + 65).map(e => String.fromCharCode(e)));
 
 	return (
 		<div>
