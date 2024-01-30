@@ -1,23 +1,34 @@
-$myColorB:  rgb(23,23,20);
-$myColorBl:  rgb(125, 175, 219) ;
-$myColorW: rgb(255,255,255);
+$ColorCinnamon:  rgb(101, 42, 14);
+$ColorBrown:  rgb(128, 71, 28);
+$ColorYellow:  rgb(244, 196, 48);
+$ColorPecan:rgb(74, 37, 17);
 
 .LetterButton {
-  // padding: 1rem;
-  // width: 3rem;
-  // height: 4rem;
-  // border-radius: 5%;
-  // background-color:$myColorW;
-  // color: $myColorBl;
-  // border: 2px solid $myColorBl;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  width: 3rem;
+  height: 4rem;
+  border-radius: 10%;
+  background-color:$ColorBrown;
+   color: $ColorYellow;
+  border: 2px solid $ColorYellow;
+  box-shadow: 4px 8px;
+  font-weight: bold;
+  font-size:x-large;
 }
 
 .LetterButton:hover{
-  // background-color:$myColorBl;
-  // color: $myColorW;
-  // border: 2px solid $myColorBl;
+  background-color:$ColorYellow;
+  color: $ColorBrown;
+  border: 2px solid $ColorBrown;
 }
 
 .hasBeenGuessed{
   text-decoration: line-through;
+}
+
+.LetterButton:disabled {
+  background-color: $ColorPecan;
+  color: mix($ColorCinnamon,white,80%);
+  border: 2px solid $ColorCinnamon;
 }
