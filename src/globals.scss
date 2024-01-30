@@ -3,9 +3,16 @@
 @import url("https://fonts.googleapis.com/css2?family=#{map.get($globalFonts, 'siteFont')}");
 
 body {
-	text-align:		center;
-	color:			black;
-	font-family:	"#{map.get($globalFonts, 'siteFont')}", sans-serif;
+
+	// Misc.
+	text-align:				center;
+	color:					black;
+	font-family:			"#{map.get($globalFonts, 'siteFont')}", sans-serif;
+
+	// Backdrop Image
+	background-repeat:		no-repeat;
+	background-size:		cover;
+
 }
 
 /* <button>s do not inherit font-family from <body> by default, so... */
