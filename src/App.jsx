@@ -1,5 +1,6 @@
 import React							from "react";
 import {BrowserRouter, Routes, Route}	from "react-router-dom";
+import Backdrop							from "./components/Backdrop/Backdrop.jsx";
 import Header							from "./components/Header/Header.jsx";
 import Footer							from "./components/Footer/Footer.jsx";
 import GameContainer					from "./components/GameContainer/GameContainer.jsx";
@@ -8,21 +9,32 @@ import "./globals.scss";
 
 const App = () => {
 
-	// (To be changed!)
-	document.body.style.backgroundImage = `url("/DesertBackdrop.png")`;
-	//document.body.style.filter = "blur(3px)";
-
 	return (
 		<>
 			<BrowserRouter>
-				<Header/>
-				<main>
-					<Routes>
-						<Route path="/"		element={<LandingPageContent/>}	/>
-						<Route path="/game" element={<GameContainer/>}		/>
-					</Routes>
-				</main>
-				<Footer/>
+				<Routes>
+					<Route path="/" element={
+							<>
+								<Backdrop isBlurred={true} />
+								<div style={{ position : "absolute" }}>
+									<main><LandingPageContent/></main>
+									<Footer/>
+								</div>
+							</>
+						}
+					/>
+					<Route path="/game" element={
+							<>
+								<Backdrop isBlurred={false} />
+								<div style={{ position : "absolute" }}>
+									<Header/>
+									<main><GameContainer/></main>
+									<Footer/>
+								</div>
+							</>
+						}
+					/>
+				</Routes>
 			</BrowserRouter>
 		</>
 	);

@@ -1,0 +1,16 @@
+.backdropImg {
+	height:						100%;
+	width:						100%;
+	position:					absolute;
+	transform:					translate(-8px, -8px);
+	background-image:			url("../../../public/DesertBackdrop.png");
+	background-size:			cover;
+
+	transition:					filter 2s;
+	transition-timing-function:	ease;
+	filter:						blur(0px);
+}
+
+.blurredBackground {
+	filter:						blur(20px);
+}
