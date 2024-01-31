@@ -12,7 +12,7 @@ const LandingPageContent = () => {
 			<body>
 			<p>
 				Having joined Ageas 4 months' ago in September 2023, this project represents the culmination of our rotation with the "Development" department. Prior to beginning to collaborate and develop "The Hangman Reacts" (get it?), we undertook a number of individual and partially-collaborative projects, in pursuit of broadening and deepening our understanding of a number of web-development technologies, whereof we previously had differing levels of experience.
-				<br/>
+				
 				<b>This project had us learn & use:</b>
 				<ul>
 					<li>HTML, JavaScript, and CSS</li>
@@ -25,7 +25,7 @@ const LandingPageContent = () => {
 
 			<p>
 				This is a React project built by Ben Mullan, Cian Perrett and James Cotter during our Digital Development rotation with Ageas. 
-				<br/>
+				
 				<b>Game Rules:</b>
 				<ul>
 					<li>A word is randomly selected from a list.</li>

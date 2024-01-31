@@ -32,7 +32,7 @@ const GameContainer = () => {
 				gameHasBeenWon={gameHasBeenWon}
 			/>
 
-			<br />
+			
 
 			{
 				[...gameWord].map(
@@ -40,7 +40,7 @@ const GameContainer = () => {
 				)
 			}
 
-			<br />
+			
 
 			{
 				[...alphabet].map(
