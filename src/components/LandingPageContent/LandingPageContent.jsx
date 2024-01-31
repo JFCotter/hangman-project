@@ -9,7 +9,7 @@ const LandingPageContent = () => {
 			<h2>The Hangman Reacts - Welcome!</h2>
 			</header>
 
-			<body>
+			<div className={styles.center}>
 			<p>
 				Having joined Ageas 4 months' ago in September 2023, this project represents the culmination of our rotation with the "Development" department. Prior to beginning to collaborate and develop "The Hangman Reacts" (get it?), we undertook a number of individual and partially-collaborative projects, in pursuit of broadening and deepening our understanding of a number of web-development technologies, whereof we previously had differing levels of experience.
 				<br/>
@@ -41,7 +41,7 @@ const LandingPageContent = () => {
 
 			<button className={styles.DesertButton} onClick={() => window.location.href = "/game"}>Play Game...</button>
 
-			</body>
+			</div>
 		</div>
 	);
 
