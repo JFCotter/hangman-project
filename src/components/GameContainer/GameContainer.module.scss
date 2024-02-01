@@ -1,0 +1,17 @@
+.gameContainerGrid {
+	
+	min-height:				80vh;
+	min-width:				100vw;
+
+	display:				grid;
+	grid-template-columns:	[main-column] auto;
+	grid-template-rows:		[progress-indicator] auto [letter-outputs] auto [letter-buttons] auto;
+	justify-content:		center;
+
+}
+
+.letterOutputsContainer {
+	grid-column:			1;
+	grid-row:				letter-outputs;
+
+}

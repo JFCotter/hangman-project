@@ -8,10 +8,8 @@ body {
 	text-align:				center;
 	color:					black;
 	font-family:			"#{map.get($globalFonts, 'siteFont')}", sans-serif;
-
-	// Backdrop Image
 	overflow:				hidden;
-
+	
 }
 
 /* <button>s do not inherit font-family from <body> by default, so... */
