@@ -10,7 +10,11 @@ const ProgressIndicator = (
 		}
 	) => {
 	
-	const renderGameOverBanner = (message) => <span>{message}<br/><button className="desertButton" onClick={() => window.location.reload()}>New Game</button> </span>;
+	const renderGameOverBanner = (message) =>
+	<div>
+		<div className={styles.gameOverMessage}>{message}<br/></div>
+		<button className="desertButton" onClick={() => window.location.reload()}>New Game</button>
+	</div>;
 
 	const renderProgressCaption = () => {
 		switch (true) {
