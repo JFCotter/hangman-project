@@ -1,0 +1,33 @@
+.gameContainerGrid {
+	
+	min-width:				100vw;
+	display:				grid;
+	grid-template-columns:	[main-column] auto;
+	grid-template-rows:		[progress-indicator] auto [letter-outputs] auto [letter-buttons] auto;
+	align-content:			center;
+	justify-content:		center;
+
+}
+
+.letterOutputsContainer {
+	grid-column:			1;
+	grid-row:				letter-outputs;
+	margin-bottom:			8vh;
+}
+
+.letterButtonsContainer {
+	grid-column:			1;
+	grid-row:				letter-buttons;
+	$x-margin:				15vw;
+	margin: {
+		bottom:				8vw;
+		left:				$x-margin;
+		right:				$x-margin;
+	}
+}
+
+.progressIndicator {
+	grid-column:			1;
+	grid-row:				progress-indicator;
+	margin-bottom:			2vh;
+}

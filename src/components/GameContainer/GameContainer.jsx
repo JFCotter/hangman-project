@@ -3,6 +3,7 @@ import getRandomWord		from "../../utilities/dataRetrieval.js"
 import LetterOutput			from "../../components/LetterOutput/LetterOutput.jsx";
 import LetterButton			from "../../components/LetterButton/LetterButton.jsx";
 import {ProgressIndicator}	from "../../components/ProgressIndicator/ProgressIndicator.jsx";
+import styles				from "./GameContainer.module.scss";
 
 const alphabet = new Set(Array.from({ length : 26 }, (e, i) => i + 65).map(e => String.fromCharCode(e)));
 
@@ -23,38 +24,39 @@ const GameContainer = () => {
 	const gameHasBeenWon	= ([...gameWord].every(ltr => [...guessedLetters].includes(ltr.toUpperCase())));
 
 	return (
-		<div>
+		<section className={styles.gameContainerGrid}>
 			
 			<ProgressIndicator
+				className={styles.ProgressIndicator}
 				numIncorrectGuessesMade={numIncorrectGuessesMade}
 				numIncorrectGuessesRemaining={numIncorrectGuessesRemaining}
 				gameHasBeenLost={gameHasBeenLost}
 				gameHasBeenWon={gameHasBeenWon}
 			/>
 
-			
+			<div className={styles.letterOutputsContainer}>
+				{
+					[...gameWord].map(
+						(letter, index) => <LetterOutput key={index} targetLetter={letter.toUpperCase()} guessedLettersP={guessedLetters} />
+					)
+				}
+			</div>
 
-			{
-				[...gameWord].map(
-					(letter, index) => <LetterOutput key={index} targetLetter={letter.toUpperCase()} guessedLettersP={guessedLetters} />
-				)
-			}
+			<div className={styles.letterButtonsContainer}>
+				{
+					[...alphabet].map(
+						(letter, index) => <LetterButton
+							key={index}
+							letterOfAlphabet={letter.toUpperCase()}
+							guessedLettersP={guessedLetters}
+							setGuessedLettersP={setGuessedLetters}
+							gameIsOver={gameHasBeenLost || gameHasBeenWon}
+						/>
+					)
+				}
+			</div>
 
-			
-
-			{
-				[...alphabet].map(
-					(letter, index) => <LetterButton
-						key={index}
-						letterOfAlphabet={letter.toUpperCase()}
-						guessedLettersP={guessedLetters}
-						setGuessedLettersP={setGuessedLetters}
-						gameIsOver={gameHasBeenLost || gameHasBeenWon}
-					/>
-				)
-			}
-
-		</div>
+		</section>
 	);
 
 };

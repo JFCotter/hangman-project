@@ -17,7 +17,7 @@ const App = () => {
 							<>
 								<Backdrop isBlurred={true} />
 								<div style={{ position : "absolute" }}>
-									<main><LandingPageContent/></main>
+									<LandingPageContent/>
 									<Footer/>
 								</div>
 							</>
@@ -28,7 +28,9 @@ const App = () => {
 								<Backdrop isBlurred={false} />
 								<div style={{ position : "absolute" }}>
 									<Header/>
-									<main><GameContainer/></main>
+									<main>
+										<GameContainer/>
+									</main>
 									<Footer/>
 								</div>
 							</>

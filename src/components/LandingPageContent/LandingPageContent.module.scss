@@ -1,34 +1,15 @@
-$ColorBrown:  rgb(128, 71, 28);
-$ColorYellow:  rgb(244, 196, 48);
+.landingPageParagraphsMargins {
 
-.center {
-    margin-top: 4rem  ;
-    margin-bottom:2rem ;
-    margin-right: 12rem;
-    margin-left: 12rem ;
+	$x-margin:	15vw;
+	$y-margin:	6vh;
+
+	margin: {
+		top:	$y-margin;
+		bottom:	$y-margin;
+		left:	$x-margin;
+		right:	$x-margin;
+	}
+
 }
 
-  ul {
-    list-style: none;
-  }
-
-.DesertButton{
-  padding: 0.5rem;
-  margin-left: 0.5rem;
-  width: 10rem;
-  height: 5rem;
-  border-radius: 10%;
-  background-color:$ColorBrown;
-  color: $ColorYellow;
-  border: 2px solid $ColorYellow;
-  box-shadow: 4px 8px;
-  font-weight: bold;
-  font-size:x-large;
-  cursor: pointer;
-}
-
-.DesertButton:hover{
-  background-color:$ColorYellow;
-  color: $ColorBrown;
-  border: 2px solid $ColorBrown;
-}
+ul { list-style: none; }
