@@ -27,7 +27,7 @@ const GameContainer = () => {
 		<section className={styles.gameContainerGrid}>
 			
 			<ProgressIndicator
-				style={{ gridColumn : "1", gridRow : "progress-indicator" }}
+				className={styles.ProgressIndicator}
 				numIncorrectGuessesMade={numIncorrectGuessesMade}
 				numIncorrectGuessesRemaining={numIncorrectGuessesRemaining}
 				gameHasBeenLost={gameHasBeenLost}
@@ -42,7 +42,7 @@ const GameContainer = () => {
 				}
 			</div>
 
-			<div style={{ gridColumn : "1", gridRow : "letter-buttons" }}>
+			<div className={styles.letterButtonsContainer}>
 				{
 					[...alphabet].map(
 						(letter, index) => <LetterButton

@@ -3,14 +3,37 @@
 @import url("https://fonts.googleapis.com/css2?family=#{map.get($globalFonts, 'siteFont')}");
 
 body {
-
-	// Misc.
 	text-align:				center;
 	color:					black;
 	font-family:			"#{map.get($globalFonts, 'siteFont')}", sans-serif;
 	overflow:				hidden;
-	
 }
 
 /* <button>s do not inherit font-family from <body> by default, so... */
 button { font-family: inherit; }
+
+.desertButton {
+	padding:			0.5rem;
+	margin-left:		0.5rem;
+	border-radius:		10%;
+	background-color:	map.get($globalColours, 'muddyBrown');
+	color:				map.get($globalColours, 'vespaYellow');
+	border:				2px solid map.get($globalColours, 'vespaYellow');
+	box-shadow:			4px 8px;
+	font-weight:		bold;
+	font-size:			x-large;
+	cursor:				pointer;
+}
+
+.desertButton:hover{
+	background-color:	map.get($globalColours, 'vespaYellow');
+	color:				map.get($globalColours, 'muddyBrown');
+	border:				2px solid map.get($globalColours, 'muddyBrown');
+}
+
+.desertButton:disabled {
+	background-color:	map.get($globalColours, 'pecanBrown');
+	color:				mix(map.get($globalColours, 'cinnamonBrown'), white, 80%);
+	border:				2px solid map.get($globalColours, 'cinnamonBrown');
+	cursor:				not-allowed;
+}

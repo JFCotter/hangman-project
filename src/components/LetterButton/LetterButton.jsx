@@ -7,7 +7,7 @@ const LetterButton = ({ letterOfAlphabet, guessedLettersP, setGuessedLettersP, g
 
 	return (
 		<button
-			className={`${styles.LetterButton} ${hasBeenGuessed && styles.hasBeenGuessed}`}
+			className={`desertButton ${styles.letterButton} ${hasBeenGuessed && styles.hasBeenGuessed}`}
 			disabled={hasBeenGuessed || gameIsOver}
 			onClick = {
 				() => setGuessedLettersP(new Set([...guessedLettersP, letterOfAlphabet.toUpperCase()]))
