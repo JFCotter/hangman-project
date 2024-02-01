@@ -10,10 +10,12 @@ const ProgressIndicator = (
 		}
 	) => {
 	
+	const renderGameOverBanner = (message) => <span>{message}<br/><button className="desertButton" onClick={() => window.location.reload()}>New Game</button> </span>;
+
 	const renderProgressCaption = () => {
 		switch (true) {
-			case gameHasBeenLost:	return <span className={`${styles.gameOverBlock} ${styles.gameLostColours}`}> Game Lost! <button onClick={() => window.location.reload()}>New Game</button> </span>;
-			case gameHasBeenWon:	return <span className={`${styles.gameOverBlock} ${styles.gameWonColours}`}> Game Won!! <button onClick={() => window.location.reload()}>New Game</button> </span>;
+			case gameHasBeenLost:	return renderGameOverBanner("Game Lost!");
+			case gameHasBeenWon:	return renderGameOverBanner("Game Won!!");
 			default:				return <span> { numIncorrectGuessesRemaining } guess{ (numIncorrectGuessesRemaining !== 1) && "es" } remaining </span>;
 		}
 	};
