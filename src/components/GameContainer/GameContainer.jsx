@@ -23,6 +23,27 @@ const GameContainer = () => {
 	const gameHasBeenLost	= (numIncorrectGuessesRemaining < 1);
 	const gameHasBeenWon	= ([...gameWord].every(ltr => [...guessedLetters].includes(ltr.toUpperCase())));
 
+	React.useEffect(() => {
+
+			console.debug("Registering keyDown handler");
+
+		function handleKeyDown(e) {
+			console.debug("Key Pressed: " + e.key);
+			if ( [...alphabet].includes(e.key.toUpperCase()) ) {
+					console.debug("Updating guessedLetters to: " + [...new Set([...guessedLetters, e.key.toUpperCase()])]);
+			setGuessedLetters(new Set([...guessedLetters, e.key.toUpperCase()]));
+			console.debug("Updated guessedLetters to: " + [...guessedLetters]);
+		  }
+		}
+	
+		document.addEventListener('keydown', handleKeyDown);
+	
+		// Don't forget to clean up
+		return function cleanup() {
+		 document.removeEventListener('keydown', handleKeyDown);
+		}
+	  }, []);
+
 	return (
 		<section className={styles.gameContainerGrid}>
 			
