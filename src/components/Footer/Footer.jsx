@@ -4,7 +4,7 @@ const Footer = () => {
 	return (
 		<footer>
 			<p>
-				Hangman Industries (c) 2024
+				Hangman Industries &#169; 2024
 			</p>
 		</footer>
 	);
