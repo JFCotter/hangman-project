@@ -57,7 +57,7 @@ const GameContainer = () => {
 			<div className={styles.letterOutputsContainer}>
 				{
 					[...gameWord].map(
-						(letter, index) => <LetterOutput key={index} targetLetter={letter.toUpperCase()} guessedLettersP={guessedLetters} />
+						(letter, index) => <LetterOutput key={index} targetLetter={letter.toUpperCase()} guessedLettersP={guessedLetters} gameHasBeenLost={gameHasBeenLost} />
 					)
 				}
 			</div>
