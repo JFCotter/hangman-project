@@ -25,14 +25,13 @@ const GameContainer = () => {
 
 	React.useEffect(() => {
 
-			console.debug("Registering keyDown handler");
-
+		console.debug("Registering keyDown handler");
 		function handleKeyDown(e) {
 			console.debug("Key Pressed: " + e.key);
-			if ( [...alphabet].includes(e.key.toUpperCase()) ) {
-					console.debug("Updating guessedLetters to: " + [...new Set([...guessedLetters, e.key.toUpperCase()])]);
-			setGuessedLetters(new Set([...guessedLetters, e.key.toUpperCase()]));
-			console.debug("Updated guessedLetters to: " + [...guessedLetters]);
+			if ( [...alphabet].includes(e.key.toUpperCase()) && !(gameHasBeenLost || gameHasBeenWon)) {
+				console.debug("Updating guessedLetters to: " + [...new Set([...guessedLetters, e.key.toUpperCase()])]);
+				setGuessedLetters(new Set([...guessedLetters, e.key.toUpperCase()]));
+				console.debug("Updated guessedLetters to: " + [...guessedLetters]);
 		  }
 		}
 	
@@ -58,7 +57,7 @@ const GameContainer = () => {
 			<div className={styles.letterOutputsContainer}>
 				{
 					[...gameWord].map(
-						(letter, index) => <LetterOutput key={index} targetLetter={letter.toUpperCase()} guessedLettersP={guessedLetters} />
+						(letter, index) => <LetterOutput key={index} targetLetter={letter.toUpperCase()} guessedLettersP={guessedLetters} gameHasBeenLost={gameHasBeenLost} />
 					)
 				}
 			</div>
