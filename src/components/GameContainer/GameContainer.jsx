@@ -23,25 +23,21 @@ const GameContainer = () => {
 	const gameHasBeenLost	= (numIncorrectGuessesRemaining < 1);
 	const gameHasBeenWon	= ([...gameWord].every(ltr => [...guessedLetters].includes(ltr.toUpperCase())));
 
+	// Register an event-handler to make key-presses trigger the <LetterButton>s
 	React.useEffect(() => {
 
-		console.debug("Registering keyDown handler");
 		function handleKeyDown(e) {
-			console.debug("Key Pressed: " + e.key);
 			if ( [...alphabet].includes(e.key.toUpperCase()) && !(gameHasBeenLost || gameHasBeenWon)) {
-				console.debug("Updating guessedLetters to: " + [...new Set([...guessedLetters, e.key.toUpperCase()])]);
 				setGuessedLetters(new Set([...guessedLetters, e.key.toUpperCase()]));
-				console.debug("Updated guessedLetters to: " + [...guessedLetters]);
-		  }
+			}
 		}
-	
+
 		document.addEventListener('keydown', handleKeyDown);
-	
-		// Don't forget to clean up
-		return function cleanup() {
-		 document.removeEventListener('keydown', handleKeyDown);
-		}
-	  }, [guessedLetters]);
+		return function cleanup() { document.removeEventListener('keydown', handleKeyDown); }
+
+		},
+		[guessedLetters]
+	);
 
 	return (
 		<section className={styles.gameContainerGrid}>
@@ -50,6 +46,7 @@ const GameContainer = () => {
 				className={styles.ProgressIndicator}
 				numIncorrectGuessesMade={numIncorrectGuessesMade}
 				numIncorrectGuessesRemaining={numIncorrectGuessesRemaining}
+				numIncorrectGuessesAllowed={numIncorrectGuessesAllowed}
 				gameHasBeenLost={gameHasBeenLost}
 				gameHasBeenWon={gameHasBeenWon}
 			/>

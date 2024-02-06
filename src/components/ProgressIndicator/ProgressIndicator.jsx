@@ -5,6 +5,7 @@ const ProgressIndicator = (
 		{
 			numIncorrectGuessesMade,
 			numIncorrectGuessesRemaining,
+			numIncorrectGuessesAllowed,
 			gameHasBeenLost,
 			gameHasBeenWon
 		}
@@ -32,6 +33,15 @@ const ProgressIndicator = (
 				alt="Hangman Graphic"
 			/>
 			<figcaption>
+				<meter
+					value={numIncorrectGuessesMade}
+					min={0}
+					max={numIncorrectGuessesAllowed}
+					low={Math.round(0.0 * numIncorrectGuessesAllowed)}
+					high={Math.round(0.7 * numIncorrectGuessesAllowed)}
+					style={{ rotate : "180deg", display : ((gameHasBeenLost || gameHasBeenWon) ? "none" : "inline") }}
+				/>
+				<br/>
 				{ renderProgressCaption() }
 			</figcaption>
 		</figure>
