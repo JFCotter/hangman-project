@@ -42,7 +42,7 @@ const GameContainer = () => {
 		return function cleanup() {
 		 document.removeEventListener('keydown', handleKeyDown);
 		}
-	  }, []);
+	  }, [guessedLetters]);
 
 	return (
 		<section className={styles.gameContainerGrid}>
