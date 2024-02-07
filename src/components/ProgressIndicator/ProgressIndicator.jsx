@@ -34,12 +34,11 @@ const ProgressIndicator = (
 			/>
 			<figcaption>
 				<meter
-					value={numIncorrectGuessesMade}
+					value={numIncorrectGuessesRemaining}
 					min={0}
 					max={numIncorrectGuessesAllowed}
-					low={Math.round(0.0 * numIncorrectGuessesAllowed)}
-					high={Math.round(0.7 * numIncorrectGuessesAllowed)}
-					style={{ rotate : "180deg", display : ((gameHasBeenLost || gameHasBeenWon) ? "none" : "inline") }}
+					low="4"
+					style={{display : ((gameHasBeenLost || gameHasBeenWon) ? "none" : "inline") }}
 				/>
 				<br/>
 				{ renderProgressCaption() }
