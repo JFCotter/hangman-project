@@ -1,7 +1,12 @@
-import React	from "react";
-import styles	from "./LandingPageContent.module.scss";
+import React					from "react";
+import { useNavigate }			from 'react-router-dom';
+import styles					from "./LandingPageContent.module.scss";
 
 const LandingPageContent = () => {
+
+	// Send the {customGameWord} to /game
+	const navigate = useNavigate();
+	const [customGameWord, setCustomGameWord] = React.useState("");
 
 	return (
 		<div>
@@ -40,7 +45,14 @@ const LandingPageContent = () => {
 					This rotation has allowed us to improve our skills using HTML, JavaScript, CSS and React. These have allowed us to develop streamlined Ageas webpages to remove dead code, providing us with an understanding on how an official webpage would be built and utilised within an organisation. The gradual development of these skills has allowed us to work on our final project (hangman) where we were able to utilise all of our learning to produce a webpage containing complex HTML, CSS and JavaScript.
 				</p>
 
-				<button className="desertButton" onClick={() => window.location.href = "/game"}>Play Game...</button>
+				Want to set your own word? Type it here:&nbsp;
+				<input type="text" onChange={e => setCustomGameWord(e.target.value)} value={customGameWord} />
+				<br/>
+				Leave blank, to have a random word selected for you.
+				<br/><br/>
+				
+				<button className="desertButton" onClick={() => navigate("/game", { state : { customGameWord : customGameWord } })}>Play Game...</button>
+				
 			</main>
 
 		</div>

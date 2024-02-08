@@ -1,4 +1,5 @@
 import React				from "react";
+import { useLocation }		from "react-router-dom";
 import getRandomWord		from "../../utilities/dataRetrieval.js"
 import LetterOutput			from "../../components/LetterOutput/LetterOutput.jsx";
 import LetterButton			from "../../components/LetterButton/LetterButton.jsx";
@@ -7,10 +8,13 @@ import styles				from "./GameContainer.module.scss";
 
 const alphabet = new Set(Array.from({ length : 26 }, (e, i) => i + 65).map(e => String.fromCharCode(e)));
 
-const GameContainer = () => {
+const GameContainer = (props) => {
+
+	// Receive state data passed from landing-page, including a {customGameWord}
+	const location = useLocation();
 
 	// setGameWord not needed because the gameWord should only be set on page load.
-	const [gameWord] = React.useState( getRandomWord().toUpperCase() );
+	const [gameWord] = React.useState( location.state.customGameWord || getRandomWord().toUpperCase() );
 	console.debug(`gameWord: ${gameWord}`);
 
 	// Using a Set, so that by-design, the same letter cannot be added twice.

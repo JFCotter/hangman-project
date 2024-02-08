@@ -32,7 +32,7 @@ const ProgressIndicator = (
 				src={`/stages/stage_${numIncorrectGuessesMade.toString().padStart(2, "0")}.PNG`}
 				alt="Hangman Graphic"
 			/>
-			<figcaption>
+			<figcaption className={styles.progressText}>
 				<meter
 					value={numIncorrectGuessesRemaining}
 					min={0}
