@@ -21,7 +21,7 @@ const GameContainer = (props) => {
 	const [guessedLetters, setGuessedLetters] = React.useState(new Set([]));
 
 	const numIncorrectGuessesAllowed	= 11;
-	const numIncorrectGuessesMade		= guessedLetters.size - (new Set([...gameWord].filter(letter => [...guessedLetters].includes(letter.toUpperCase())))).size;
+	const numIncorrectGuessesMade		= guessedLetters.size - (new Set([...gameWord.toUpperCase()].filter(letter => [...guessedLetters].includes(letter.toUpperCase())))).size;
 	const numIncorrectGuessesRemaining	= numIncorrectGuessesAllowed - numIncorrectGuessesMade;
 
 	const gameHasBeenLost	= (numIncorrectGuessesRemaining < 1);
